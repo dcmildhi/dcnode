@@ -1,0 +1,32 @@
+{
+  "name": "Super Optimized Ubuntu Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "ms-toolsai.jupyter",
+        "github.copilot",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "postCreateCommand": "bash /workspaces/dcnode/.devcontainer/setup.sh",
+  "remoteUser": "root",
+  "mounts": [
+    {
+      "source": "${localWorkspaceFolder}",
+      "target": "/workspaces/dcnode",
+      "type": "bind"
+    }
+  ]
+}
